@@ -35,12 +35,12 @@ button {
 
 #yes {
     background-color: #2ecc71;
-    left: -80px;
+    left: -100px;
 }
 
 #no {
     background-color: #e74c3c;
-    right: -80px;
+    left: 100px;
 }
 
 .hidden {
@@ -51,11 +51,18 @@ button {
     animation: fadeIn 1s ease forwards;
 }
 
-#valentineImage {
+#success img {
     margin-top: 30px;
     max-width: 300px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
 @keyframes fadeIn {
