@@ -4,7 +4,7 @@ const zone = document.querySelector(".button-zone");
 const mainContent = document.getElementById("mainContent");
 const success = document.getElementById("success");
 
-let yesScale = 0.1;
+let yesScale = 1;
 
 // --- NON BOUGE EN CONTINU DANS SA ZONE ---
 function moveRandom() {
@@ -19,7 +19,7 @@ function moveRandom() {
 }
 
 // déplacement toutes les 500ms
-setInterval(moveRandom, 500);
+setInterval(moveRandom, 250);
 
 // --- FEU D’ARTIFICE ---
 const canvas = document.getElementById("fireworks");
@@ -69,7 +69,7 @@ yesButton.addEventListener("click", () => {
     mainContent.classList.add("hidden");
     success.classList.remove("hidden");
 
-    yesScale += 0.2;
+    yesScale += 0.1;
     yesButton.style.transform = `scale(${yesScale})`;
 
     for (let i = 0; i < 8; i++) {
@@ -81,3 +81,4 @@ yesButton.addEventListener("click", () => {
         }, i * 250);
     }
 });
+
