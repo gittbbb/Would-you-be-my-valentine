@@ -4,7 +4,7 @@ const zone = document.querySelector(".button-zone");
 const mainContent = document.getElementById("mainContent");
 const success = document.getElementById("success");
 
-let yesScale = 1;
+let yesScale = 0.1;
 
 // --- NON BOUGE EN CONTINU DANS SA ZONE ---
 function moveRandom() {
@@ -69,7 +69,7 @@ yesButton.addEventListener("click", () => {
     mainContent.classList.add("hidden");
     success.classList.remove("hidden");
 
-    yesScale += 0.1;
+    yesScale += 0.2;
     yesButton.style.transform = `scale(${yesScale})`;
 
     for (let i = 0; i < 8; i++) {
@@ -81,4 +81,3 @@ yesButton.addEventListener("click", () => {
         }, i * 250);
     }
 });
-
