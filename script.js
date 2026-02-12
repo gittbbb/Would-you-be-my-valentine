@@ -5,42 +5,21 @@ const mainContent = document.getElementById("mainContent");
 const success = document.getElementById("success");
 
 let yesScale = 1;
-let angle = 0;
 
-// --- NON tourne autour du OUI ---
-function orbitNoButton() {
-    const yesRect = yesButton.getBoundingClientRect();
-    const zoneRect = zone.getBoundingClientRect();
+// --- NON BOUGE EN CONTINU DANS SA ZONE ---
+function moveRandom() {
+    const maxX = zone.clientWidth - noButton.offsetWidth;
+    const maxY = zone.clientHeight - noButton.offsetHeight;
 
-    const centerX = yesRect.left - zoneRect.left + yesRect.width / 2;
-    const centerY = yesRect.top - zoneRect.top + yesRect.height / 2;
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
-    const radius = 100;
-
-    angle += 0.1;
-
-    const x = centerX + radius * Math.cos(angle) - noButton.offsetWidth / 2;
-    const y = centerY + radius * Math.sin(angle) - noButton.offsetHeight / 2;
-
-    noButton.style.left = x + "px";
-    noButton.style.top = y + "px";
+    noButton.style.left = randomX + "px";
+    noButton.style.top = randomY + "px";
 }
 
-document.addEventListener("mousemove", (e) => {
-    const rect = noButton.getBoundingClientRect();
-
-    const distance = Math.hypot(
-        e.clientX - (rect.left + rect.width / 2),
-        e.clientY - (rect.top + rect.height / 2)
-    );
-
-    if (distance < 150) {
-        orbitNoButton();
-
-        yesScale += 0.05;
-        yesButton.style.transform = `scale(${yesScale})`;
-    }
-});
+// déplacement toutes les 500ms
+setInterval(moveRandom, 500);
 
 // --- FEU D’ARTIFICE ---
 const canvas = document.getElementById("fireworks");
@@ -89,6 +68,9 @@ animate();
 yesButton.addEventListener("click", () => {
     mainContent.classList.add("hidden");
     success.classList.remove("hidden");
+
+    yesScale += 0.2;
+    yesButton.style.transform = `scale(${yesScale})`;
 
     for (let i = 0; i < 8; i++) {
         setTimeout(() => {
