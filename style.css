@@ -24,6 +24,7 @@ h1 {
     width: 400px;
     height: 200px;
     margin-top: 50px;
+    border-radius: 20px;
 }
 
 button {
@@ -33,19 +34,20 @@ button {
     border-radius: 15px;
     cursor: pointer;
     position: absolute;
-    transition: transform 0.2s ease;
 }
 
 #yes {
     background: #2ecc71;
-    left: 150px;
+    left: 50px;
     top: 80px;
+    transition: transform 0.2s ease;
 }
 
 #no {
     background: #e74c3c;
-    left: 50px;
+    left: 220px;
     top: 80px;
+    pointer-events: none; /* rend le bouton inclicable */
 }
 
 .hidden {
@@ -56,7 +58,7 @@ button {
     margin-top: 30px;
     max-width: 300px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    box-shadow: 0 0 30px rgba(255,255,255,0.6);
 }
 
 .final-text {
